@@ -31,31 +31,70 @@
 
         // Todo 2.1 Select the unordered list with the id "subjects-taken"
         // Resource: https://dev.to/alternate_robot/dom-selectors-in-javascript-344i
+        const unorderedList = document.getElementById("subjects-taken")
+        console.log(unorderedList)
+        
 
         // Checkpoint 2.1 What are the other ways to select elements in the DOM?
-        // Answer:
+        // Answer: 
+        /*
+        document.querySelector(selector): This method returns the first element that matches a specified CSS selector(s) in the document.
+        document.querySelectorAll(selector): This method returns all elements in the document that matches a specified CSS selector(s), as a static NodeList object.
+        document.getElementsByClassName(className): This method returns a collection of all elements in the document with the specified class name, as a NodeList object.
+        document.getElementsByTagName(tagName): This method returns a collection of all elements in the document with the specified tag name, as a NodeList object.
+        */
 
         // Todo 2.2 Set the text of the second list item to "IT102 - Python Fundamentals"
         // Resource: https://www.javascripttutorial.net/javascript-dom/javascript-get-child-element/
+        unorderedList.children[1].textContent = "IT102 - Python Fundamentals";
 
         // Checkpoint 3.2 What is the difference between innerText, textContent, and innerHTML. When should you use one over the other?
         // Answer:
 
+        /*If you want to get all the text regardless of visibility, use textContent.
+        If you want to get only the visible text, use innerText.
+        If you want to get the HTML content, use innerHTML.
+
+        */
         // Todo 2.3 Create another list item, and add it as a child of the unordered list
         //          Set the text of the list item to your favorite subject
         // Resource: https://www.javascripttutorial.net/dom/manipulating/create-a-dom-element/
+        const element = document.createElement('li');
+        element.innerHTML = "Math";
+        unorderedList.appendChild(element);
+
+
+
 
         // Todo 2.4 Set the id attribute of the list item you created to "favorite-subject".
         //          Set the class of the list item to "newly-created"
 
+        element.id ="favorite-subject";
+        element.class = "newly-created";
+
         // Todo 2.5 Delete the third list item in the unordered list
+        unorderedList.children[2].remove();
+        
 
         // Checkpoint 2.3 What is the difference between node and element?
         // Answer:
 
+        /*
+        A Node is an interface in the DOM that can be an element, text, comment, etc. 
+        An Element is a type of node that represents an HTML element. 
+        So, all elements are nodes, but not all nodes are elements.
+        */
+
         // Bonus Todo 2.6 Select the parent of the unordered list.
+        const parent = unorderedList.parentNode;
+        console.log(parent);
+
 
         // Bonus Todo 2.7 Select the previous sibling of the list item you previously created
+        let prevSibling = element.previousElementSibling;
+        console.log(prevSibling);
+
+
     </script>
 </body>
 
